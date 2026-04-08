@@ -4,489 +4,526 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Capital Premier Rang</title>
+  <meta name="description" content="Financement privé structuré en premier rang, adossé à des actifs tangibles et mesurables." />
   <style>
     :root{
-      --bg:#0b0b0b;
-      --panel:#141414;
-      --text:#f3f3f3;
-      --muted:#c7c7c7;
-      --line:#2a2a2a;
-      --gold:#d4af37;
-      --gold-dark:#b6921f;
+      --bg:#0b0b0d;
+      --panel:#131316;
+      --panel-2:#18181d;
+      --text:#f7f7f5;
+      --muted:#c8c8c4;
+      --line:#2b2b31;
+      --gold:#d7b25f;
+      --gold-2:#a8863d;
+      --soft:#f3ecdc;
+      --ok:#8fd19e;
+      --shadow: 0 20px 60px rgba(0,0,0,.28);
+      --radius:18px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:var(--bg);
+      font-family: Inter, Arial, Helvetica, sans-serif;
       color:var(--text);
-      line-height:1.45;
+      background:
+        radial-gradient(circle at top right, rgba(215,178,95,.10), transparent 22%),
+        linear-gradient(180deg, #0b0b0d 0%, #101014 100%);
+      line-height:1.5;
     }
-    .container{
-      width:min(1120px, calc(100% - 32px));
-      margin:0 auto;
-    }
+    a{color:inherit}
+    .container{width:min(1160px, calc(100% - 32px)); margin:0 auto}
     header{
-      position:sticky;
-      top:0;
-      z-index:10;
-      background:rgba(11,11,11,.92);
-      backdrop-filter: blur(8px);
-      border-bottom:1px solid var(--line);
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,11,13,.82);
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
     .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
+      display:flex; align-items:center; justify-content:space-between; gap:20px;
       padding:16px 0;
     }
     .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:700;
-      text-decoration:none;
-      color:var(--text);
+      display:flex; align-items:center; gap:12px; text-decoration:none; font-weight:800;
+      letter-spacing:.01em;
     }
     .logo{
-      width:38px;height:38px;
-      border:1px solid #3a3316;
-      border-radius:10px;
-      display:grid;place-items:center;
-      color:var(--gold);
-      font-weight:800;
-      background:#111;
-      box-shadow: inset 0 0 0 1px rgba(212,175,55,.1);
+      width:40px; height:40px; border-radius:12px; display:grid; place-items:center;
+      color:#111; background:linear-gradient(180deg, #e5c97f, #c49a43);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 8px 18px rgba(215,178,95,.18);
+      font-weight:900;
     }
+    nav{display:flex; gap:22px; flex-wrap:wrap}
     nav a{
-      color:var(--text);
-      text-decoration:none;
-      margin-left:20px;
-      font-weight:600;
-      opacity:.92;
+      text-decoration:none; color:#ecece8; opacity:.88; font-weight:650; font-size:15px;
     }
     nav a:hover{color:var(--gold)}
+
     .hero{
-      padding:56px 0 34px;
-      display:grid;
-      grid-template-columns:1.2fr .9fr;
-      gap:28px;
-      align-items:start;
+      padding:64px 0 34px;
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:24px; align-items:stretch;
     }
     .eyebrow{
-      color:var(--gold);
-      font-weight:800;
-      letter-spacing:.06em;
-      margin-bottom:12px;
-      text-transform:uppercase;
-      font-size:15px;
-    }
-    h1{
-      margin:0 0 16px;
-      font-size:clamp(38px, 7vw, 74px);
-      line-height:.98;
-      letter-spacing:-0.03em;
-    }
-    h2{
-      font-size:clamp(30px,4.8vw,52px);
-      margin:0 0 10px;
-      letter-spacing:-0.03em;
-    }
-    .lead{
-      color:var(--muted);
-      font-size:20px;
-      max-width:760px;
-      margin-bottom:22px;
-    }
-    .tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px; border:1px solid rgba(215,178,95,.24); border-radius:999px;
+      color:var(--soft); background:rgba(215,178,95,.08); font-weight:800; font-size:13px;
+      text-transform:uppercase; letter-spacing:.08em;
       margin-bottom:18px;
     }
-    .tag{
-      border:1px solid #393939;
-      background:#111;
-      padding:11px 14px;
-      border-radius:999px;
-      color:#f1f1f1;
-      font-weight:600;
-      font-size:15px;
+    h1{
+      margin:0 0 14px; font-size:clamp(40px, 6vw, 74px); line-height:.98; letter-spacing:-.04em;
+      max-width:850px;
     }
-    .actions{
-      display:flex;
-      gap:14px;
-      align-items:center;
-      flex-wrap:wrap;
-      margin-top:8px;
+    .accent{color:var(--gold)}
+    .lead{
+      margin:0 0 26px; max-width:760px; color:var(--muted); font-size:clamp(18px, 2vw, 22px);
     }
+    .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin:0 0 22px}
     .btn{
-      display:inline-block;
-      padding:14px 22px;
-      border-radius:10px;
-      text-decoration:none;
-      font-weight:800;
-      border:1px solid var(--line);
-      cursor:pointer;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      min-height:50px; padding:0 20px; border-radius:12px; text-decoration:none; font-weight:800;
+      border:1px solid var(--line); cursor:pointer; transition:.18s ease;
     }
     .btn-primary{
-      background:var(--gold);
-      color:#111;
-      border-color:var(--gold-dark);
+      color:#111; background:linear-gradient(180deg, #e2c67e, #c89f47); border-color:#b48a31;
+      box-shadow:0 10px 24px rgba(215,178,95,.20);
     }
-    .btn-secondary{
-      background:#111;
-      color:var(--text);
+    .btn-secondary{background:rgba(255,255,255,.02); color:#fff}
+    .btn:hover{transform:translateY(-1px)}
+    .hero-notes{
+      display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; max-width:820px;
     }
-    .note{
-      margin-top:12px;
-      color:var(--muted);
-      font-size:15px;
+    .pill{
+      padding:13px 14px; border-radius:14px; background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06); color:#f2f2ed; font-weight:650;
     }
+
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:24px;
-      box-shadow:0 0 0 1px rgba(255,255,255,.02) inset;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid var(--line); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow);
     }
-    .card h3{
-      margin:0 0 12px;
-      font-size:28px;
-    }
-    .list{
-      margin:0;padding-left:20px;
-      color:#f1f1f1;
-    }
-    .list li{margin:10px 0}
-    section{padding:18px 0 10px}
-    .section-title{
-      color:var(--gold);
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.06em;
+    .hero-side .card{height:100%}
+    .metric{display:flex; flex-direction:column; gap:3px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,.06)}
+    .metric:last-child{border-bottom:none; padding-bottom:0}
+    .metric strong{font-size:26px; color:var(--gold); letter-spacing:-.02em}
+    .metric span{color:var(--muted)}
+
+    section{padding:26px 0}
+    .section-head{margin-bottom:18px}
+    .kicker{
+      color:var(--gold); text-transform:uppercase; letter-spacing:.08em; font-size:13px; font-weight:800;
       margin-bottom:8px;
-      font-size:15px;
     }
+    h2{margin:0 0 10px; font-size:clamp(30px,4vw,50px); line-height:1.02; letter-spacing:-.035em}
+    .sub{margin:0; color:var(--muted); max-width:820px; font-size:18px}
+
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
+    .list{margin:14px 0 0; padding-left:18px}
+    .list li{margin:10px 0; color:#f0f0ec}
     .muted{color:var(--muted)}
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-      margin-top:20px;
-    }
-    .grid-5{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:14px;
-      margin-top:18px;
-    }
+    .small{font-size:14px}
+    .ok{color:var(--ok); font-weight:700}
+
+    .criteria-columns{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+    .badge-title{display:flex; align-items:center; gap:10px; font-size:18px; font-weight:800; margin-bottom:8px}
+    .dot{width:10px; height:10px; border-radius:50%; background:var(--gold)}
+
+    .steps{display:grid; grid-template-columns:repeat(5,1fr); gap:16px}
     .step{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:18px 16px;
-      min-height:170px;
+      background:var(--panel-2); border:1px solid var(--line); border-radius:16px; padding:20px; min-height:220px;
     }
     .step-num{
-      width:32px;height:32px;border-radius:50%;
-      display:grid;place-items:center;
-      background:var(--gold);
-      color:#111;
-      font-weight:800;
-      margin-bottom:14px;
+      width:34px; height:34px; border-radius:50%; display:grid; place-items:center;
+      background:var(--gold); color:#111; font-weight:900; margin-bottom:14px;
     }
-    .step h4{margin:0 0 8px;font-size:18px}
-    .step p{margin:0;color:var(--muted)}
-    .form-wrap{
-      margin-top:22px;
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:24px;
+    .step h3{margin:0 0 8px; font-size:20px}
+    .step p{margin:0; color:var(--muted)}
+
+    .mission{
+      display:grid; grid-template-columns:1.08fr .92fr; gap:18px; align-items:start;
     }
-    .form-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:14px;
+    .checks{display:grid; gap:12px; margin-top:18px}
+    .check{
+      display:flex; gap:12px; align-items:flex-start; padding:14px 16px; border-radius:14px;
+      background:rgba(255,255,255,.025); border:1px solid rgba(255,255,255,.06);
     }
-    .field{display:flex;flex-direction:column;gap:8px}
-    .field-full{grid-column:1 / -1}
-    label{
-      font-size:14px;
-      color:#f0f0f0;
-      font-weight:700;
+    .check strong{display:block; margin-bottom:4px}
+    .check-icon{
+      width:22px; height:22px; border-radius:50%; display:grid; place-items:center; flex:0 0 22px;
+      color:#111; background:var(--gold); font-size:13px; font-weight:900; margin-top:2px;
     }
+
+    .form-shell{
+      border-radius:22px; border:1px solid var(--line); background:linear-gradient(180deg, #15151b, #111116);
+      overflow:hidden; box-shadow:var(--shadow);
+    }
+    .form-top{
+      display:grid; grid-template-columns:.82fr 1.18fr;
+    }
+    .form-side{
+      padding:28px; background:linear-gradient(180deg, rgba(215,178,95,.16), rgba(215,178,95,.06));
+      border-right:1px solid rgba(255,255,255,.06);
+    }
+    .form-side h3{margin:0 0 10px; font-size:28px}
+    .form-side p{margin:0 0 16px; color:#f1efe8}
+    .form-side ul{margin:0; padding-left:18px}
+    .form-side li{margin:10px 0; color:#fbf7ef}
+    form{padding:28px}
+    .form-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+    .field{display:flex; flex-direction:column; gap:8px}
+    .field.full{grid-column:1 / -1}
+    label{font-size:14px; font-weight:700; color:#f3f3ee}
     input, select, textarea{
-      width:100%;
-      background:#0f0f0f;
-      color:#fff;
-      border:1px solid #343434;
-      border-radius:12px;
-      padding:14px 14px;
-      font:inherit;
-      outline:none;
+      width:100%; border:1px solid #36363e; background:#0d0d12; color:#fff;
+      border-radius:12px; padding:14px 14px; font:inherit; outline:none;
     }
     textarea{min-height:120px; resize:vertical}
     input:focus, select:focus, textarea:focus{
-      border-color:var(--gold);
-      box-shadow:0 0 0 3px rgba(212,175,55,.12);
+      border-color:var(--gold); box-shadow:0 0 0 3px rgba(215,178,95,.14);
     }
-    .submit-row{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-top:18px;
+    .submit-row{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:18px}
+    .form-note{
+      margin-top:14px; padding:14px 16px; border-radius:12px; background:rgba(255,255,255,.035);
+      border:1px dashed rgba(255,255,255,.12); color:var(--muted);
     }
+
     .disclaimer{
-      margin-top:26px;
-      background:#111;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:18px 20px;
+      padding:18px 20px; border-radius:16px; border:1px solid var(--line); background:rgba(255,255,255,.025);
       color:var(--muted);
     }
-    footer{
-      padding:34px 0 46px;
-      text-align:center;
-      color:#d6d6d6;
+    footer{padding:36px 0 48px; text-align:center; color:#d8d8d2}
+    footer strong{display:block; color:#fff; margin-bottom:6px}
+
+    @media (max-width: 1080px){
+      .hero, .mission, .form-top{grid-template-columns:1fr}
+      .grid-3, .grid-2, .criteria-columns{grid-template-columns:1fr}
+      .steps{grid-template-columns:repeat(2,1fr)}
+      .form-side{border-right:none; border-bottom:1px solid rgba(255,255,255,.06)}
     }
-    footer strong{display:block;margin-bottom:4px;color:#fff}
-    @media (max-width: 980px){
-      .hero{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-      .grid-5{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width: 640px){
+    @media (max-width: 720px){
       nav{display:none}
-      .form-grid{grid-template-columns:1fr}
-      .grid-5{grid-template-columns:1fr}
-      .container{width:min(1120px, calc(100% - 22px))}
-      .hero{padding-top:34px}
-      .lead{font-size:18px}
+      .container{width:min(1160px, calc(100% - 22px))}
+      .hero{padding-top:38px}
+      .hero-notes, .form-grid, .steps{grid-template-columns:1fr}
+      .pill{font-size:14px}
+      form, .form-side{padding:20px}
     }
   </style>
 </head>
 <body>
-<header>
-  <div class="container nav">
-    <a class="brand" href="#top">
-      <div class="logo">P</div>
-      <span>Capital Premier Rang</span>
-    </a>
-    <nav>
-      <a href="#criteres">Critères</a>
-      <a href="#processus">Processus</a>
-      <a href="#demande" onclick="event.preventDefault(); document.getElementById('demande').scrollIntoView({behavior:'smooth'}); history.replaceState(null, '', '#demande');">Faire une demande</a>
-      <a href="#avis">Avis</a>
-    </nav>
-  </div>
-</header>
-
-<main id="top" class="container">
-  <section class="hero">
-    <div>
-      <div class="eyebrow">Financement privé structuré</div>
-      <h1>Nous finançons des actifs, pas des promesses.</h1>
-      <div class="lead">
-        Solutions de financement privé adossées à un actif immobilier résidentiel,
-        avec une approche directe, confidentielle et sélective.
-      </div>
-      <div class="tags">
-        <div class="tag">Taux à partir de 10 %</div>
-        <div class="tag">Frais d’ouverture de dossier : 4 %</div>
-        <div class="tag">Premier rang seulement</div>
-        <div class="tag">Résidentiel accepté : terrains, maisons et plex</div>
-        <div class="tag">Montant minimum 500 000 $</div>
-      </div>
-      <div class="actions">
-        <a class="btn btn-primary" href="#demande" onclick="event.preventDefault(); document.getElementById('demande').scrollIntoView({behavior:'smooth'}); history.replaceState(null, '', '#demande');">Faire une demande</a>
-        <a class="btn btn-secondary" href="#criteres">Voir les critères</a>
-      </div>
-      <div class="note">Nombre limité de dossiers analysés chaque mois. <strong>Version corrigée v13</strong>.</div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <div class="logo">P</div>
+        <span>Capital Premier Rang</span>
+      </a>
+      <nav>
+        <a href="#criteres">Critères</a>
+        <a href="#positionnement">Positionnement</a>
+        <a href="#processus">Processus</a>
+        <a href="#mission">Mission</a>
+        <a href="#demande">Faire une demande</a>
+      </nav>
     </div>
+  </header>
 
-    <div id="criteres" class="card">
-      <h3>Critères de base</h3>
-      <ul class="list">
-        <li>Garantie immobilière requise</li>
-        <li>Premier rang uniquement</li>
-        <li>Résidentiel uniquement</li>
-        <li>Montant minimum 500 000 $</li>
-        <li>Stratégie de sortie claire</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-title">Positionnement</div>
-    <h2>Une approche claire, simple et sélective</h2>
-    <div class="muted">Nous évaluons la qualité de la garantie, le ratio prêt/valeur et la logique du remboursement avant toute décision.</div>
-
-    <div class="grid-3">
-      <div class="card">
-        <h3>Ce que nous finançons</h3>
-        <ul class="list">
-          <li>Actifs immobiliers résidentiels (terrains, maisons, duplex, triplex, quadruplex)</li>
-          <li>Prêts relais</li>
-          <li>Refinancement à court terme</li>
-          <li>Besoins temporaires de liquidités</li>
-          <li>Dossiers adossés à un actif immobilier</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Ce que nous refusons</h3>
-        <ul class="list">
-          <li>Deuxième hypothèque</li>
-          <li>Terrains agricoles ou commerciaux</li>
-          <li>Dossiers sans garantie immobilière</li>
-          <li>Projets spéculatifs sans sortie claire</li>
-          <li>Historique de crédit incompatible avec nos critères d’analyse</li>
-          <li>Demandes inférieures à 500 000 $</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Pourquoi Capital Premier Rang</h3>
-        <ul class="list">
-          <li>Analyse rapide et confidentielle</li>
-          <li>Frais d’ouverture de dossier : 4 %</li>
-          <li>Communication directe</li>
-          <li>Structure simple</li>
-          <li>Décisions au cas par cas</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="processus">
-    <div class="section-title">Processus</div>
-    <h2>Comment ça fonctionne</h2>
-    <div class="grid-5">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h4>Soumission</h4>
-        <p>Réception du dossier et des informations de base.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h4>Analyse</h4>
-        <p>Évaluation du bien, du rang et du ratio prêt/valeur.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h4>Validation</h4>
-        <p>Vérification de la stratégie de sortie et de la logique du remboursement.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h4>Décision</h4>
-        <p>Décision rapide sur les dossiers correspondant à nos critères.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <h4>Financement</h4>
-        <p>Mise en place du financement lorsque le dossier est retenu.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="demande">
-    <div class="section-title">Faire une demande</div>
-    <h2>Soumettez votre dossier en ligne</h2>
-    <div class="muted">Formulaire confidentiel. Seuls les dossiers correspondant à nos critères seront contactés.</div>
-
-    <div class="form-wrap">
-      <form name="demande" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="demande">
-        <p style="display:none">
-          <label>Ne pas remplir ce champ : <input name="bot-field"></label>
+  <main id="top" class="container">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Financement privé structuré</div>
+        <h1>Nous finançons des actifs <span class="accent">tangibles et mesurables</span>.</h1>
+        <p class="lead">
+          Solutions de financement privé adossées à un actif immobilier, avec une approche
+          directe, confidentielle, sélective et orientée vers des dossiers solides.
         </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#demande">Faire une demande</a>
+          <a class="btn btn-secondary" href="#criteres">Voir les critères</a>
+        </div>
+        <div class="hero-notes">
+          <div class="pill">Taux compétitifs selon le dossier</div>
+          <div class="pill">Frais d’ouverture variables</div>
+          <div class="pill">Premier rang uniquement</div>
+          <div class="pill">Montant minimum 500 000 $</div>
+          <div class="pill">Résidentiel et certains projets commerciaux selon validation</div>
+          <div class="pill">Nombre limité de dossiers analysés chaque mois</div>
+        </div>
+      </div>
 
-        <div class="form-grid">
-          <div class="field">
-            <label for="nom">Nom complet</label>
-            <input id="nom" name="nom" type="text" required>
+      <div class="hero-side">
+        <div class="card">
+          <div class="metric">
+            <strong>Premier rang</strong>
+            <span>Structure privilégiée pour les dossiers retenus.</span>
           </div>
-          <div class="field">
-            <label for="email">Courriel</label>
-            <input id="email" name="email" type="email" required>
+          <div class="metric">
+            <strong>Décision rapide</strong>
+            <span>Analyse directe, au cas par cas, avec approche flexible.</span>
           </div>
-          <div class="field">
-            <label for="telephone">Téléphone</label>
-            <input id="telephone" name="telephone" type="tel" required>
+          <div class="metric">
+            <strong>Capital disponible</strong>
+            <span>Évaluation rapide des dossiers qualifiés et des besoins réels.</span>
           </div>
-          <div class="field">
-            <label for="entreprise">Nom d’entreprise (si applicable)</label>
-            <input id="entreprise" name="entreprise" type="text">
+          <div class="metric">
+            <strong>Approche confidentielle</strong>
+            <span>Communication directe, sans intermédiaires inutiles.</span>
           </div>
-          <div class="field">
-            <label for="montant">Montant demandé</label>
-            <input id="montant" name="montant" type="number" min="500000" step="1000" placeholder="Minimum 500 000" required>
-          </div>
-          <div class="field">
-            <label for="delai">Délai souhaité</label>
-            <input id="delai" name="delai" type="text" placeholder="Ex. 15 jours, 30 jours">
-          </div>
-          <div class="field">
-            <label for="ville">Ville / région</label>
-            <input id="ville" name="ville" type="text" required>
-          </div>
-          <div class="field">
-            <label for="type_actif">Type d’actif</label>
-            <select id="type_actif" name="type_actif" required>
-              <option value="">Choisir</option>
-              <option>Terrain résidentiel</option>
-              <option>Maison</option>
-              <option>Duplex</option>
-              <option>Triplex</option>
-              <option>Quadruplex</option>
-              <option>Autre résidentiel</option>
-            </select>
-          </div>
-          <div class="field field-full">
-            <label for="adresse">Adresse de l’actif</label>
-            <input id="adresse" name="adresse" type="text" required>
-          </div>
-          <div class="field">
-            <label for="valeur">Valeur estimée de l’actif</label>
-            <input id="valeur" name="valeur" type="number" step="1000">
-          </div>
-          <div class="field">
-            <label for="solde">Solde hypothécaire actuel</label>
-            <input id="solde" name="solde" type="number" step="1000">
-          </div>
-          <div class="field field-full">
-            <label for="projet">Description du projet</label>
-            <textarea id="projet" name="projet" required></textarea>
-          </div>
-          <div class="field field-full">
-            <label for="sortie">Stratégie de remboursement / sortie</label>
-            <textarea id="sortie" name="sortie" required></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section id="criteres">
+      <div class="section-head">
+        <div class="kicker">Critères</div>
+        <h2>Une sélection rigoureuse, basée sur le projet et le client</h2>
+        <p class="sub">Chaque demande est évaluée sur la qualité de la garantie, l’équité disponible, la stratégie de sortie et la crédibilité globale du dossier.</p>
+      </div>
+
+      <div class="criteria-columns">
+        <div class="card">
+          <div class="badge-title"><span class="dot"></span>Critères liés au projet</div>
+          <ul class="list">
+            <li>Garantie immobilière requise</li>
+            <li>Premier rang uniquement</li>
+            <li>Montant minimum de 500 000 $</li>
+            <li>Stratégie de sortie claire, avec options réalistes</li>
+            <li>Équité disponible et ratio de financement cohérent</li>
+            <li>Actif résidentiel ou commercial selon validation du projet</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="badge-title"><span class="dot"></span>Critères liés au client</div>
+          <ul class="list">
+            <li>Qualification de qualité</li>
+            <li>Dossier de crédit propre</li>
+            <li>Absence d’historique de fragilité majeur</li>
+            <li>Compétence, fiabilité et logique d’exécution</li>
+            <li>Capacité de remboursement et caution personnelle au besoin</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="positionnement">
+      <div class="section-head">
+        <div class="kicker">Positionnement</div>
+        <h2>Une approche claire, simple et flexible</h2>
+        <p class="sub">Nous évaluons la qualité de la garantie, le rang, l’équité, la logique du remboursement et l’ensemble de la structure avant toute décision.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Ce que nous finançons</h3>
+          <ul class="list">
+            <li>Actifs immobiliers adossés à une valeur claire</li>
+            <li>Refinancement à court terme</li>
+            <li>Besoins temporaires de liquidités</li>
+            <li>Dossiers structurés adossés à un actif</li>
+            <li>Certains projets commerciaux selon validation</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Ce que nous refusons</h3>
+          <ul class="list">
+            <li>Deuxième hypothèque</li>
+            <li>Projets spéculatifs sans sortie claire</li>
+            <li>Demandes sans logique de remboursement</li>
+            <li>Dossiers avec crédit incompatible avec nos critères</li>
+            <li>Demandes inférieures à 500 000 $</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Pourquoi Capital Premier Rang</h3>
+          <ul class="list">
+            <li>Analyse rapide et confidentielle</li>
+            <li>Frais d’ouverture variables selon le dossier</li>
+            <li>Communication directe</li>
+            <li>Décisions au cas par cas</li>
+            <li>Structure souple lorsque le dossier le justifie</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="processus">
+      <div class="section-head">
+        <div class="kicker">Processus</div>
+        <h2>Comment ça fonctionne</h2>
+        <p class="sub">Un processus simple, rapide et axé sur la qualité du dossier dès la première lecture.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Soumission</h3>
+          <p>Réception des informations de base sur le projet, l’actif et le client.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Analyse</h3>
+          <p>Évaluation du bien, du rang, du niveau d’équité et de la cohérence du financement demandé.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Validation</h3>
+          <p>Validation de l’ensemble du dossier, de la stratégie de sortie et de la logique du remboursement.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Décision</h3>
+          <p>Décision ultra rapide sur les dossiers qui répondent à nos critères.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <h3>Financement</h3>
+          <p>Mise en place rapide du financement, avec évaluation pouvant être complétée dans un délai court pour les dossiers qualifiés.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission">
+      <div class="section-head">
+        <div class="kicker">Notre mission et nos forces</div>
+        <h2>Une capacité d’exécution directe et crédible</h2>
+      </div>
+
+      <div class="mission">
+        <div class="card">
+          <p class="sub" style="margin-bottom:0; max-width:none;">
+            Notre objectif est d’offrir une solution de financement structurée, rapide et crédible pour des dossiers immobiliers qui présentent une logique claire, une garantie solide et une réelle capacité d’aboutir.
+          </p>
+          <div class="checks">
+            <div class="check"><div class="check-icon">✓</div><div><strong>Capital disponible déjà en main</strong><div class="muted">Capacité d’évaluer et d’avancer sur les dossiers qualifiés sans lourdeur inutile.</div></div></div>
+            <div class="check"><div class="check-icon">✓</div><div><strong>Rapidité et efficacité</strong><div class="muted">Approche orientée vers les décisions importantes, sans étapes superflues.</div></div></div>
+            <div class="check"><div class="check-icon">✓</div><div><strong>Sans intermédiaires inutiles</strong><div class="muted">Communication plus directe, exécution plus simple.</div></div></div>
           </div>
         </div>
 
-        <div class="submit-row">
-          <button class="btn btn-primary" type="submit">Envoyer ma demande</button>
-          <div class="muted">Après envoi, la page se recharge. La demande est enregistrée dans Netlify Forms.</div>
+        <div class="card">
+          <div class="checks" style="margin-top:0">
+            <div class="check"><div class="check-icon">✓</div><div><strong>Preuve des fonds disponible au besoin</strong><div class="muted">Pour qualifications sérieuses et démarches légales avec intervenants autorisés.</div></div></div>
+            <div class="check"><div class="check-icon">✓</div><div><strong>Historique et crédibilité reconnus</strong><div class="muted">Expertise, expérience et qualification dans l’analyse de dossiers structurés.</div></div></div>
+            <div class="check"><div class="check-icon">✓</div><div><strong>À l’écoute d’un seul client à la fois</strong><div class="muted">Approche plus humaine, plus ciblée et plus sérieuse pour les mandats retenus.</div></div></div>
+          </div>
         </div>
-      </form>
-    </div>
-  </section>
+      </div>
+    </section>
 
-  <section id="avis">
-    <div class="section-title">Avis important</div>
-    <div class="disclaimer">
-      Les informations présentées sur ce site sont fournies à titre informatif seulement. Toute demande est sujette à analyse, vérification et acceptation selon les critères applicables. Aucune approbation n’est garantie. Les conditions finales peuvent varier selon le dossier.
-    </div>
-  </section>
-</main>
+    <section id="demande">
+      <div class="section-head">
+        <div class="kicker">Faire une demande</div>
+        <h2>Soumettez votre dossier</h2>
+        <p class="sub">Formulaire confidentiel. Cet espace est prêt visuellement et peut être connecté ensuite à votre adresse de réception ou à votre outil d’envoi préféré.</p>
+      </div>
 
-<footer class="container">
-  <strong>Capital Premier Rang</strong>
-  Financement privé structuré — premier rang seulement.
-</footer>
+      <div class="form-shell">
+        <div class="form-top">
+          <div class="form-side">
+            <h3>Informations à prévoir</h3>
+            <p>Pour accélérer l’analyse, préparez les éléments de base suivants :</p>
+            <ul>
+              <li>Coordonnées complètes du demandeur</li>
+              <li>Type d’actif et adresse</li>
+              <li>Montant demandé et délai souhaité</li>
+              <li>Valeur estimée et dette existante</li>
+              <li>Description du projet</li>
+              <li>Stratégie de remboursement / sortie</li>
+            </ul>
+          </div>
+
+          <form action="#" method="post" onsubmit="event.preventDefault(); alert('Formulaire prêt visuellement. Il reste à le connecter à votre système de réception.');">
+            <div class="form-grid">
+              <div class="field">
+                <label for="nom">Nom complet</label>
+                <input id="nom" name="nom" type="text" required>
+              </div>
+              <div class="field">
+                <label for="courriel">Courriel</label>
+                <input id="courriel" name="courriel" type="email" required>
+              </div>
+              <div class="field">
+                <label for="telephone">Téléphone</label>
+                <input id="telephone" name="telephone" type="tel">
+              </div>
+              <div class="field">
+                <label for="entreprise">Nom d’entreprise (si applicable)</label>
+                <input id="entreprise" name="entreprise" type="text">
+              </div>
+              <div class="field">
+                <label for="montant">Montant demandé</label>
+                <input id="montant" name="montant" type="text" placeholder="Ex. 750 000 $" required>
+              </div>
+              <div class="field">
+                <label for="delai">Délai souhaité</label>
+                <input id="delai" name="delai" type="text" placeholder="Ex. 15 jours, 30 jours">
+              </div>
+              <div class="field">
+                <label for="ville">Ville / région</label>
+                <input id="ville" name="ville" type="text" required>
+              </div>
+              <div class="field">
+                <label for="actif">Type d’actif</label>
+                <select id="actif" name="actif" required>
+                  <option value="">Choisir</option>
+                  <option>Terrain</option>
+                  <option>Maison</option>
+                  <option>Plex</option>
+                  <option>Commercial</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="adresse">Adresse de l’actif</label>
+                <input id="adresse" name="adresse" type="text">
+              </div>
+              <div class="field">
+                <label for="valeur">Valeur estimée de l’actif</label>
+                <input id="valeur" name="valeur" type="text" placeholder="Ex. 1 250 000 $">
+              </div>
+              <div class="field">
+                <label for="solde">Dette / solde hypothécaire actuel</label>
+                <input id="solde" name="solde" type="text">
+              </div>
+              <div class="field full">
+                <label for="projet">Description du projet</label>
+                <textarea id="projet" name="projet" required></textarea>
+              </div>
+              <div class="field full">
+                <label for="sortie">Stratégie de remboursement / sortie</label>
+                <textarea id="sortie" name="sortie" required></textarea>
+              </div>
+            </div>
+
+            <div class="submit-row">
+              <button class="btn btn-primary" type="submit">Envoyer la demande</button>
+              <span class="small muted">Espace prévu pour la demande. Connexion technique finale à brancher selon votre préférence.</span>
+            </div>
+
+            <div class="form-note small">
+              Note : pour l’instant, ce formulaire est intégré visuellement dans le site. Si vous voulez, je peux aussi vous préparer une version branchée à une adresse courriel ou à un service de formulaires compatible avec GitHub Pages.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="avis">
+      <div class="section-head">
+        <div class="kicker">Avis important</div>
+      </div>
+      <div class="disclaimer">
+        Les informations présentées sur ce site sont fournies à titre informatif seulement. Toute demande est sujette à analyse, vérification et acceptation selon les critères applicables. Aucune approbation n’est garantie. Les conditions finales peuvent varier selon le dossier.
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <strong>Capital Premier Rang</strong>
+    Financement privé structuré — premier rang uniquement.
+  </footer>
 </body>
 </html>
