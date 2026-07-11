@@ -444,7 +444,7 @@
             </ul>
           </div>
 
-          <form action="https://formspree.io/f/mlgokryw" method="POST">
+          <form id="lead-form" action="https://formspree.io/f/mlgokryw" method="POST">
             <input type="hidden" name="_subject" value="Nouvelle demande - Capital Premier Rang" />
             <div class="form-grid">
               <div class="field">
@@ -535,5 +535,40 @@
     <strong>Capital Premier Rang</strong>
     Financement privé immobilier — premier et deuxième rang — grande région de Québec.
   </footer>
+
+  <script>
+    const leadForm = document.getElementById('lead-form');
+
+    leadForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const submitButton = leadForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.textContent;
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Envoi en cours…';
+
+      try {
+        const response = await fetch(leadForm.action, {
+          method: 'POST',
+          body: new FormData(leadForm),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Échec de l’envoi du formulaire.');
+        }
+
+        window.location.href = '/merci.html';
+      } catch (error) {
+        alert("Une erreur est survenue pendant l’envoi. Veuillez réessayer.");
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    });
+  </script>
+
 </body>
 </html>
