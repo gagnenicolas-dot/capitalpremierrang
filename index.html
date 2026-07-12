@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18186033461"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (Google Ads + Google Analytics 4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18186033461"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'AW-18186033461');
-</script>  
+    gtag('config', 'AW-18186033461');
+    gtag('config', 'G-EFHCXD8EKQ');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Capital Premier Rang</title>
@@ -561,7 +562,28 @@
           throw new Error('Échec de l’envoi du formulaire.');
         }
 
-        window.location.href = '/merci.html';
+        let redirected = false;
+        const goToThankYouPage = () => {
+          if (redirected) return;
+          redirected = true;
+          window.location.href = '/merci.html';
+        };
+
+        // Enregistre explicitement la demande comme prospect dans GA4,
+        // puis redirige vers la page de remerciement.
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            form_id: 'lead-form',
+            form_name: 'Demande de financement',
+            event_callback: goToThankYouPage,
+            event_timeout: 2000
+          });
+
+          // Sécurité au cas où le rappel Google serait bloqué.
+          setTimeout(goToThankYouPage, 2200);
+        } else {
+          goToThankYouPage();
+        }
       } catch (error) {
         alert("Une erreur est survenue pendant l’envoi. Veuillez réessayer.");
         submitButton.disabled = false;
